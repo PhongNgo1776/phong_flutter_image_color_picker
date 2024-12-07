@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Plugin example app'),
       ),
       body: Center(
-        child: RaisedButton(
+        child: TextButton(
           child: Text('View Image'),
           onPressed: () {
             Navigator.push(

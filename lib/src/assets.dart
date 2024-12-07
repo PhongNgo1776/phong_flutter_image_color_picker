@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'dart:async';
 
-import 'package:flutter/rendering.dart';
 import 'package:image_color_picker/src/color.dart';
 
 class AssetImageBG extends StatefulWidget {
   final String assetPath;
 
-  const AssetImageBG({Key key, this.assetPath}) : super(key: key);
+  const AssetImageBG({super.key, required this.assetPath});
   @override
   _AssetImageBGState createState() => _AssetImageBGState();
 }
@@ -17,7 +16,7 @@ class _AssetImageBGState extends State<AssetImageBG> {
   GlobalKey imageKey = GlobalKey();
   GlobalKey paintKey = GlobalKey();
 
-  GlobalKey currentKey;
+  late GlobalKey currentKey;
 
   final StreamController<Color> stateController = StreamController<Color>();
   Color color1 = Color(0xFFFFFFFF);
@@ -26,7 +25,7 @@ class _AssetImageBGState extends State<AssetImageBG> {
   void initState() {
     currentKey = paintKey;
     Timer.periodic(Duration(seconds: 1), (callback) async {
-      if (imageKey.currentState.context.size.height == 0.0) {
+      if (imageKey.currentState?.context.size?.height == 0.0) {
       } else {
         var cd1 = await ColorDetection(
           currentKey: currentKey,
